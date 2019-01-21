@@ -26,28 +26,28 @@ class Event
     @attendees = attendees_array
   end
 
-  def postpone_24h
+  def self.postpone_24h
     self.start_date = start_date + 24 * 60 * 60
     self
   end
 
-  def end_date
+  def self.end_date
     start_date + length * 60
   end
 
-  def is_past
+  def self.is_past
     end_date < Time.now
   end
 
-  def is_future
+  def self.is_future
     start_date > Time.now
   end
 
-  def is_soon
+  def self.is_soon
     is_future && ((start_date - Time.now) < 30 * 60)
   end
 
-  def to_s
+  def self.to_s
     puts "Titre : #{title}"
     puts "Date de début : #{Time.parse(start_date)}"
     puts "Durée : #{length} minutes"
