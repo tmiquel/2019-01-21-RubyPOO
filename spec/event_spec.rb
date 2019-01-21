@@ -5,11 +5,13 @@ require 'rspec/its'
 require 'pry'
 
 describe Event do
-  before(:each) do
-    Object.send(:remove_const, 'Event')
-    load 'event.rb'
-    @event = Event.new
-    @my_event = Event.new(Time.now - 3600, 100, 'my event', ['Jean-Paul', 'Fanny'])
+  before(:all) do
+    # Object.send(:remove_const, 'Event')
+    # load 'event.rb'
+
+    @event = Event.new(Time.now, 0, '', [], false)
+
+    @my_event = Event.new(Time.now - 3600, 100, 'my event', ['Jean-Paul', 'Fanny'], false)
   end
 
   instance_methods_array =
@@ -19,6 +21,7 @@ describe Event do
   context 'created with defaults' do
     %i[length title attendees]
       .zip([0, '', []]).each do |attribute, default_value|
+
       its(attribute) { should eql(default_value) }
     end
 
@@ -42,6 +45,7 @@ describe Event do
   context 'When I set actual values' do
     it 'should have the expected attributes' do
       expect(@my_event.start_date.to_f).to be_within(1).of((Time.now - 3600).to_f)
+
       expect(@my_event.length).to be_eql(100)
       expect(@my_event.title).to be_eql('my event')
       expect(@my_event.attendees).to be_eql(['Jean-Paul', 'Fanny'])

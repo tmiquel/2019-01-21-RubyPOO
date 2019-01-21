@@ -1,39 +1,16 @@
 README
 ======
 
-TEMPLATE README
-THP Marseille - Fichier de rendu pour le 2019/01/17
+THP Marseille - Fichier de rendu pour le 2019/01/21
 
-Comment exécuter le programme
-=============
+Découverte de la Programmation Orientée Objet
 
-1. Créer un dossier
-2. git clone https://github.com/tmiquel/THP-2019-01-10-RubyBasics
-3. Se mettre à la racine du dossier
-4. Jouer les tests suivants :
-
-	rspec spec/crypto_currencies_spec.rb 
-
-	rspec spec/townhall_spec.rb 
-
-	rspec spec/members_FR_parliament_spec.rb
-
+Classes Users / Event / EventCreator
 
 Contenu
 ======
 
-1. Un scrapping de crypto_currencies
-
-	ruby lib/crypto_currencies_scrapper.rb 
-
-2. Un scrapping des emails des mairies du Val d'Oise
-
-	ruby lib/oise_townhall_scrapper.rb
-
-3. Un scrapping des emails des députés français
-
-	ruby lib/members_FR_parliament_scrapper.rb
-	
+Lancer ruby app.rb dans le dossier root pour faire un scénario.
 
 Participants 
 ==========

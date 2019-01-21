@@ -12,14 +12,27 @@ require_relative 'lib/event'
 # Open bar pour tester ton application. Tous les fichiers importants sont chargés
 # Tu peux faire User.new, Event.new, binding.pry, User.all, etc etc
 
+User.new('julie@julie.com')
+User.new('jean@jean.com')
 
+julie = User.find_by_email('julie@julie.com')
+jean = User.find_by_email('jean@jean.com')
 
-
-User.new("julie@julie.com")
-User.new("jean@jean.com")
-
-julie = User.find_by_email("julie@julie.com")
-jean = User.find_by_email("jean@jean.com")
-
-e = Event.new("2019-01-13 09:00", 10, "standup quotidien", [julie, jean])
+e = Event.new('2019-01-13 09:00', 10, 'standup quotidien', [julie, jean])
 puts "Voici l'email du premier attendee de l'événement : #{e.attendees.first.email}"
+
+puts "User count: #{User.count}, expected 2"
+puts "All users: #{User.all}"
+
+evenement = Event.new
+
+puts evenement.to_s
+puts 'postpone test'
+evenement.postpone_24h
+puts evenement.to_s
+puts 'is past test'
+puts evenement.is_past
+puts 'is future test'
+puts evenement.is_future
+puts 'is soon test'
+puts evenement.is_soon
